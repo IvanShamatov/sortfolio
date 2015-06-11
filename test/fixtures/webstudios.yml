@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  average_ticket: 1.5
+  city_id: 1
+  description: MyText
+
+two:
+  name: MyString
+  average_ticket: 1.5
+  city_id: 1
+  description: MyText

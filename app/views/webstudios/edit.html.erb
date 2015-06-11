@@ -1,0 +1,7 @@
+<%= simple_form_for(@wd, html: { class: 'form-horizontal' }, :method => :patch) do |form|%>
+  <%= form.input :name, as: :string, label: 'Название'%>
+  <%= form.input :average_ticket, as: :string, label: 'Средний чек'%>
+  <%= form.input :description, as: :text, label: 'Описание'%>
+  <%= form.input :img, as: :file, label: 'Изображение'%>
+  <%= form.button :submit, 'Изменить'%>
+<%end%>

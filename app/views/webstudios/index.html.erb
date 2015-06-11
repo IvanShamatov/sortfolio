@@ -1,0 +1,20 @@
+
+
+<div class="row">
+	<%@ws.each do |ws|%>
+	<div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%=image_tag(ws.img)%>
+      <div class="caption">
+        <h3><%=ws.name%></h3>
+        <p><%=ws.description%></p>
+        <p>Город: <%=ws.city.name%></p>
+        <p>
+		<%= link_to 'Посмотреть', webstudio_path(ws), {class: "btn btn-primary", role: "button"} %>
+        	 </p> 
+      </div>
+    </div>
+    </div>
+	<%end%>
+</div>
+
