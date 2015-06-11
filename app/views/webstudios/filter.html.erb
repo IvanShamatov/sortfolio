@@ -1,7 +1,7 @@
 <%= simple_form_for :filter, :url =>  webstudios_filter_path, :method => :get do |f| %>
   <%= f.input :pricelow, as: :string, label: 'Минимальная цена'%>
   <%= f.input :pricehigh, as: :string, label: 'Максимальная цена'%>
-  <%= f.input :city, collection: @c.map %>
+  <%= f.input :city_id, collection: @c.map %>
   <%= f.button :submit, 'Поиск'%>
 <%end%>
 

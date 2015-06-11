@@ -6,24 +6,10 @@ class WebstudiosController < ApplicationController
 
   def filter
     @c = City.all
-    @ws = Array.new
-    if (!params[:filter][:pricelow].empty?&&!params[:filter][:pricehigh].empty?&&!params[:filter][:city].empty?) == true
-      Webstudio.all.each do |ws|
-           @ws << ws if ws.average_ticket.to_f.between?(params[:filter][:pricelow].to_f,params[:filter][:pricehigh].to_f)&&ws.city_id.to_i==params[:filter][:city].to_i
-      end
-    elsif (!params[:filter][:pricelow].empty?&&!params[:filter][:pricehigh].empty?) == true
-      Webstudio.all.each do |ws|
-           @ws << ws if ws.average_ticket.to_f.between?(params[:filter][:pricelow].to_f,params[:filter][:pricehigh].to_f)
-      end
-    elsif (!params[:filter][:city].empty?) == true
-      Webstudio.all.each do |ws|
-           @ws << ws if ws.city_id.to_i==params[:filter][:city].to_i
-      end
-    else 
-      Webstudio.all.each do |ws|
-          @ws << ws
-      end
-    end
+    @ws = Webstudio.all
+    @ws = @ws.where(city_id: params[:filter][:city_id]) unless params[:filter][:city_id].empty?
+    @ws = @ws.where("average_ticket < ?", params[:filter][:pricehigh]) unless params[:filter][:pricehigh].empty? 
+    @ws = @ws.where("average_ticket > ?", params[:filter][:pricelow]) unless params[:filter][:pricelow].empty?
   end
 
   def show
