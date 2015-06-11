@@ -33,6 +33,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Аккаунт<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#"><%= link_to 'Настройки аккаунта', edit_user_registration_path %></a></li>
+            <li><a href="#"><%= link_to 'Изменить данные моей веб студии', controller: "webstudios", action: "edit", id: current_user.webstudio %></a></li>
             <li class="divider"></li>
             <li><a href="#"><%= link_to 'Выход', destroy_user_session_path, method: :delete %></a></li>
           </ul>
