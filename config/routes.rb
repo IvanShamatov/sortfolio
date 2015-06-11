@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'webstudios/index'
 
+  get 'webstudios/filter'
+
   get 'webstudios/show'
 
   get 'webstudios/:id/edit/' => 'webstudios#edit'
